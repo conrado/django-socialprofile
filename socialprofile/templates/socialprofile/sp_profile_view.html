@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load i18n %}
 {% load socialprofile_tags %}
+{% load url from future %}
 
 {% block headtitle %}{% trans "Profile for " %}{{ user.username }}{% endblock %}
 
@@ -11,7 +12,7 @@
 
         <h1>{% trans "Profile" %}</h1>
         {% if request.user.username == form.username.value %}
-            <a href="{% url sp_profile_edit_page %}?returnTo={{ form.returnTo.value }}" data-role="button"
+            <a href="{% url 'sp_profile_edit_page' %}?returnTo={{ form.returnTo.value }}" data-role="button"
                data-mini="true" data-ajax="false">{% trans "Edit" %}</a>
         {% endif %}
     </header>
